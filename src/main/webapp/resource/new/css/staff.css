@@ -1,0 +1,49 @@
+.right .middle .content .tableContainer td span.btn{
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    margin: 0 3px;
+    border-radius: 5px;
+    line-height: 20px;
+}
+.right .middle .content .tableContainer td span.btn.update{
+    border: 1px solid rgb(240,173,78);
+    color: rgb(240,173,78);
+}
+.right .middle .content .tableContainer td span.btn.delete{
+    border: 1px solid rgb(153,153,153);
+    color: rgb(153,153,153);
+}
+.pop{
+    height: 550px;
+    margin-top: -300px;
+}
+.shadow .pop .formList>div{
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+.shadow .pop .formList>div>input{
+    height: 36px;
+    width: 240px;
+}
+.shadow .pop .formList>div>select{
+    width: 244px;
+    height: 36px;
+}
+.shadow .pop .formList>div>.icon{
+    width: 240px;
+    display: inline-block;
+    text-align: left;
+}
+.shadow .pop .formList>div>.icon.switch_on i{
+    width: 40px;
+    height: 22px;
+    display: inline-block;
+    background-position: -85px -85px;
+}
+.shadow .pop .formList>div>.icon.switch_off i{
+    width: 40px;
+    height: 22px;
+    display: inline-block;
+    background-position: -137px -85px;
+}

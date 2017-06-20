@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="smw.xfTender" >
+  <resultMap id="BaseResultMap" type="com.smw.pojo.XfTender" >
+    <id column="xf_tendercode" property="xfTendercode" jdbcType="VARCHAR" />
+    <result column="xf_tenderdesc" property="xfTenderdesc" jdbcType="VARCHAR" />
+    <result column="xf_refund" property="xfRefund" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    xf_tendercode, xf_tenderdesc, xf_refund
+  </sql>
+  <select id="smw.xfTender.selectById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from xf_tender
+    where xf_tendercode = #{xfTendercode,jdbcType=VARCHAR}
+  </select>
+  <select id="smw.xfTender.selectTenderList" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from xf_tender
+  </select>
+  <delete id="smw.xfTender.deleteById" parameterType="java.lang.String" >
+    delete from xf_tender
+    where xf_tendercode = #{xfTendercode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="smw.xfTender.insert" parameterType="com.smw.pojo.XfTender" >
+    insert into xf_tender (xf_tendercode, xf_tenderdesc, xf_refund
+      )
+    values (#{xfTendercode,jdbcType=VARCHAR}, #{xfTenderdesc,jdbcType=VARCHAR}, #{xfRefund,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="smw.xfTender.insertSelective" parameterType="com.smw.pojo.XfTender" >
+    insert into xf_tender
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="xfTendercode != null" >
+        xf_tendercode,
+      </if>
+      <if test="xfTenderdesc != null" >
+        xf_tenderdesc,
+      </if>
+      <if test="xfRefund != null" >
+        xf_refund,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="xfTendercode != null" >
+        #{xfTendercode,jdbcType=VARCHAR},
+      </if>
+      <if test="xfTenderdesc != null" >
+        #{xfTenderdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="xfRefund != null" >
+        #{xfRefund,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="smw.xfTender.updateByIdSelective" parameterType="com.smw.pojo.XfTender" >
+    update xf_tender
+    <set >
+      <if test="xfTenderdesc != null" >
+        xf_tenderdesc = #{xfTenderdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="xfRefund != null" >
+        xf_refund = #{xfRefund,jdbcType=BIT},
+      </if>
+    </set>
+    where xf_tendercode = #{xfTendercode,jdbcType=VARCHAR}
+  </update>
+  <update id="smw.xfTender.updateById" parameterType="com.smw.pojo.XfTender" >
+    update xf_tender
+    set xf_tenderdesc = #{xfTenderdesc,jdbcType=VARCHAR},
+      xf_refund = #{xfRefund,jdbcType=BIT}
+    where xf_tendercode = #{xfTendercode,jdbcType=VARCHAR}
+  </update>
+</mapper>

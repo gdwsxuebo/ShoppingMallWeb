@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="smw.salesTender" >
+  <resultMap id="BaseResultMap" type="com.smw.pojo.SalesTender" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="txdocno" property="txdocno" jdbcType="VARCHAR" />
+    <result column="lineno" property="lineno" jdbcType="INTEGER" />
+    <result column="tendercode" property="tendercode" jdbcType="VARCHAR" />
+    <result column="payamount" property="payamount" jdbcType="DECIMAL" />
+    <result column="baseamount" property="baseamount" jdbcType="DECIMAL" />
+    <result column="excessamount" property="excessamount" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, txdocno, lineno, tendercode, payamount, baseamount, excessamount
+  </sql>
+  <select id="smw.salesTender.selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sales_tender
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="smw.salesTender.deleteById" parameterType="java.lang.Integer" >
+    delete from sales_tender
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="smw.salesTender.insert" parameterType="com.smw.pojo.SalesTender" >
+    insert into sales_tender (id, txdocno, lineno, 
+      tendercode, payamount, baseamount, 
+      excessamount)
+    values (#{id,jdbcType=INTEGER}, #{txdocno,jdbcType=VARCHAR}, #{lineno,jdbcType=INTEGER}, 
+      #{tendercode,jdbcType=VARCHAR}, #{payamount,jdbcType=DECIMAL}, #{baseamount,jdbcType=DECIMAL}, 
+      #{excessamount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="smw.salesTender.insertSelective" parameterType="com.smw.pojo.SalesTender" >
+    insert into sales_tender
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="txdocno != null" >
+        txdocno,
+      </if>
+      <if test="lineno != null" >
+        lineno,
+      </if>
+      <if test="tendercode != null" >
+        tendercode,
+      </if>
+      <if test="payamount != null" >
+        payamount,
+      </if>
+      <if test="baseamount != null" >
+        baseamount,
+      </if>
+      <if test="excessamount != null" >
+        excessamount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="txdocno != null" >
+        #{txdocno,jdbcType=VARCHAR},
+      </if>
+      <if test="lineno != null" >
+        #{lineno,jdbcType=INTEGER},
+      </if>
+      <if test="tendercode != null" >
+        #{tendercode,jdbcType=VARCHAR},
+      </if>
+      <if test="payamount != null" >
+        #{payamount,jdbcType=DECIMAL},
+      </if>
+      <if test="baseamount != null" >
+        #{baseamount,jdbcType=DECIMAL},
+      </if>
+      <if test="excessamount != null" >
+        #{excessamount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="smw.salesTender.updateByIdSelective" parameterType="com.smw.pojo.SalesTender" >
+    update sales_tender
+    <set >
+      <if test="txdocno != null" >
+        txdocno = #{txdocno,jdbcType=VARCHAR},
+      </if>
+      <if test="lineno != null" >
+        lineno = #{lineno,jdbcType=INTEGER},
+      </if>
+      <if test="tendercode != null" >
+        tendercode = #{tendercode,jdbcType=VARCHAR},
+      </if>
+      <if test="payamount != null" >
+        payamount = #{payamount,jdbcType=DECIMAL},
+      </if>
+      <if test="baseamount != null" >
+        baseamount = #{baseamount,jdbcType=DECIMAL},
+      </if>
+      <if test="excessamount != null" >
+        excessamount = #{excessamount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="smw.salesTender.updateById" parameterType="com.smw.pojo.SalesTender" >
+    update sales_tender
+    set txdocno = #{txdocno,jdbcType=VARCHAR},
+      lineno = #{lineno,jdbcType=INTEGER},
+      tendercode = #{tendercode,jdbcType=VARCHAR},
+      payamount = #{payamount,jdbcType=DECIMAL},
+      baseamount = #{baseamount,jdbcType=DECIMAL},
+      excessamount = #{excessamount,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

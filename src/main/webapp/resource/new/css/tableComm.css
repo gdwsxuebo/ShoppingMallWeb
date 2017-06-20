@@ -1,0 +1,123 @@
+*{
+    color: rgb(51, 51, 51);
+}
+.right .middle .content{
+    padding: 1.1904%;
+    float: left;
+}
+.content .title>*{
+    float: left;
+    line-height: 40px;
+}
+.content .title .search{
+    height: 40px;
+    width: 220px;
+    border: 1px solid rgb(204,204,204);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.content .title .search>*{
+    height:100%;
+    float: left;
+}
+.content .title .search>input{
+    width: 179px;
+    border: none;
+    border-right: 1px solid rgb(204,204,204);
+}
+.content .title .search .searchBtn{
+    cursor: pointer;
+}
+.content .title .search .searchBtn i{
+    width: 40px;
+    height: 40px;
+    top:0;
+    margin: 0;
+    background-position: 5px -75px;
+}
+.content .title .btn{
+    width: 72px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 5px;
+    margin:0 5px 0 20px;
+    background-color:  rgb(101, 206, 167);
+}
+.content .title .dataDetails{
+    color: rgb(153, 153, 153);
+}
+/*table*/
+.content .tableContainer{
+    margin-top: 20px;
+    float: left;
+    width:100%;
+    text-align: center;
+    border: 1px solid rgb(204,204,204);
+}
+.content .tableContainer table th{
+    border-bottom: 1px solid rgb(204,204,204);
+    line-height: 45px;
+    background-color: rgb(239,240,244);
+}
+.content .tableContainer table th:not(:last-of-type),
+.content .tableContainer table td:not(:last-of-type)
+{
+    border-right: 1px solid rgb(204,204,204);
+}
+.content .tableContainer table td{
+    line-height: 40px;
+    color: rgb(102, 102, 102);
+}
+.content .tableContainer table tr:nth-of-type(even){
+    background-color: rgb(247,248,252);
+}
+
+/*handleSec*/
+.content .handleSec{
+    line-height: 50px;
+    height: 50px;
+    padding: 0 20px;
+    background-color:rgb(239,240,244);
+}
+.content .handleSec>*{
+    float: right;
+}
+.content .handleSec .pageContainer{
+    margin-right: 20px;
+}
+.content .handleSec .btn{
+    display: inline-block;
+    margin-left: 2px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgb(222,222,222);
+    border-radius: 3px;
+    line-height: 32px;
+}
+.content .handleSec .btn.page:hover{
+    background-color: rgb(101, 206, 167);
+    color: #ffffff;
+}
+.content .handleSec .btn.icon i{
+    top:0;
+    width:100%;
+    margin: 0;
+}
+.content .handleSec .btn.icon.prev i{
+    background-position: -76px -110px;
+}
+.content .handleSec .btn.icon.prev:hover i{
+    background-position: -103px -110px;
+}
+.content .handleSec .btn.icon.next i{
+    background-position: -128px -110px;
+}
+.content .handleSec .btn.icon.next:hover i{
+    background-position: -155px -110px;
+}
+
+.content .handleSec .pageDetails .pageToJump{
+    width: 40px;
+    height: 32px;
+    border: 1px solid rgb(222,222,222);
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+	version="2.1">
+	<description>分页标签</description>
+	<display-name>分页 core</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>p</short-name>
+	<uri>/paging</uri>
+	<!-- <p:paging url="" data=""/> -->
+	<tag>
+		<description>分页</description>
+		<name>paging</name>
+		<tag-class>com.smw.common.util.paging.PagingTag</tag-class>
+		<body-content>empty</body-content>
+		<!-- url属性,必填项,不能使用EL表达式 -->
+		<attribute>
+			<description>获取数据的路径</description>
+			<name>url</name>
+			<required>true</required>
+			<!-- rtexprvalue的全称是 Run-time Expression Value， 它用于表示是否可以使用JSP表达式. -->
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<!-- 分页对象,必填项,使用EL表达式 -->
+		<attribute>
+			<description>分页对象</description>
+			<name>data</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<!-- 下拉列表框显示值的递增量,可选项,不能使用EL表达式,只能配置数字类型 -->
+		<attribute>
+			<description>下拉列表框显示值的递增量,默认为增量为3,可选项,不能使用EL表达式,只能配置数字类型</description>
+			<name>step</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<type>Integer</type>
+		</attribute>
+		<!-- 下拉列表框显示的最大值 -->
+		<attribute>
+			<description>配置下拉列表框中最多显示的值为多少,默认最大值为20行,不能使用EL表达式,只能配置数字类型</description>
+			<name>maxPageSize</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<type>Integer</type>
+		</attribute>
+	</tag>
+
+
+</taglib>

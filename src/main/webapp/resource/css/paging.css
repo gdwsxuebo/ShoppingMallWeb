@@ -1,0 +1,14 @@
+.paging{
+	border:1px solid #5A94E3;
+	margin:5px;
+	padding:5px;
+	color: #ccc;
+	border-radius:3px;
+}
+.paging a{
+	text-decoration: none;
+	color: #5A94E3;
+}
+.paging .tip{
+	color: #5A94E3;
+}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="smw.xfStaff" >
+  <resultMap id="BaseResultMap" type="com.smw.pojo.XfStaff" >
+    <id column="xf_staffcode" property="xfStaffcode" jdbcType="VARCHAR" />
+    <result column="xf_name" property="xfName" jdbcType="VARCHAR" />
+    <result column="xf_password" property="xfPassword" jdbcType="VARCHAR" />
+    <result column="xf_issuestore" property="xfIssuestore" jdbcType="VARCHAR" />
+    <result column="enabled" property="enabled" jdbcType="BIT" />
+    <result column="authority" property="authority" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    xf_staffcode, xf_name, xf_password, xf_issuestore, enabled,authority
+  </sql>
+  <select id="smw.xfStaff.selectByXfStaff" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from xf_staff,xf_staff_role as xsr
+    where xf_staffcode = #{xfStaffcode,jdbcType=VARCHAR} and xf_password=#{xfPassword,jdbcType=VARCHAR} 
+    and enabled=1 and xf_staffcode=xsr.xf_staffcode and xsr.authority='ROLE_STORE_ADMIN' or xsr.authority='ROLE_MALL_ADMIN'
+  </select>
+  <select id="smw.xfStaff.selectStaffCount" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select count(*) as count from xf_staff
+    where xf_issuestore = #{storecode,jdbcType=VARCHAR}
+  </select>
+  <select id="smw.xfStaff.selectById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from xf_staff
+    where xf_staffcode = #{xfStaffcode,jdbcType=VARCHAR}
+  </select>
+  <delete id="smw.xfStaff.deleteById" parameterType="java.lang.String" >
+    delete from xf_staff
+    where xf_staffcode = #{xfStaffcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="smw.xfStaff.insert" parameterType="com.smw.pojo.XfStaff" >
+    insert into xf_staff (xf_staffcode, xf_name, xf_password, 
+      xf_issuestore, enabled)
+    values (#{xfStaffcode,jdbcType=VARCHAR}, #{xfName,jdbcType=VARCHAR}, #{xfPassword,jdbcType=VARCHAR}, 
+      #{xfIssuestore,jdbcType=VARCHAR}, #{enabled,jdbcType=BIT})
+  </insert>
+  <insert id="smw.xfStaff.insertSelective" parameterType="com.smw.pojo.XfStaff" >
+    insert into xf_staff
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="xfStaffcode != null" >
+        xf_staffcode,
+      </if>
+      <if test="xfName != null" >
+        xf_name,
+      </if>
+      <if test="xfPassword != null" >
+        xf_password,
+      </if>
+      <if test="xfIssuestore != null" >
+        xf_issuestore,
+      </if>
+      <if test="enabled != null" >
+        enabled,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="xfStaffcode != null" >
+        #{xfStaffcode,jdbcType=VARCHAR},
+      </if>
+      <if test="xfName != null" >
+        #{xfName,jdbcType=VARCHAR},
+      </if>
+      <if test="xfPassword != null" >
+        #{xfPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="xfIssuestore != null" >
+        #{xfIssuestore,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null" >
+        #{enabled,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="smw.xfStaff.updateByIdSelective" parameterType="com.smw.pojo.XfStaff" >
+    update xf_staff
+    <set >
+      <if test="xfName != null" >
+        xf_name = #{xfName,jdbcType=VARCHAR},
+      </if>
+      <if test="xfPassword != null" >
+        xf_password = #{xfPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="xfIssuestore != null" >
+        xf_issuestore = #{xfIssuestore,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null" >
+        enabled = #{enabled,jdbcType=BIT},
+      </if>
+    </set>
+    where xf_staffcode = #{xfStaffcode,jdbcType=VARCHAR}
+  </update>
+  <update id="smw.xfStaff.updateById" parameterType="com.smw.pojo.XfStaff" >
+    update xf_staff
+    set xf_name = #{xfName,jdbcType=VARCHAR},
+      xf_password = #{xfPassword,jdbcType=VARCHAR},
+      xf_issuestore = #{xfIssuestore,jdbcType=VARCHAR},
+      enabled = #{enabled,jdbcType=BIT}
+    where xf_staffcode = #{xfStaffcode,jdbcType=VARCHAR}
+  </update>
+</mapper>

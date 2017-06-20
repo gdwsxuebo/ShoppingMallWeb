@@ -1,0 +1,348 @@
+/*隐藏日期输入框上下三角*/
+input[type=date]::-webkit-inner-spin-button { visibility: hidden; }
+::-webkit-inner-spin-button { visibility: hidden; }
+input[type=date]::-webkit-clear-button { display:none }
+
+.right .middle .content .tableContainer td span.btn{
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 20px;
+}
+.right .middle .content .tableContainer td span.btn.lookSend,
+.right .middle .content .tableContainer td span.btn.lookUse{
+    border: 1px solid rgb(66,79,99);
+    color: rgb(66,79,99);
+}
+.right .middle .content .tableContainer td span.btn.update{
+    border: 1px solid rgb(240,173,78);
+    color: rgb(240,173,78);
+}
+.right .middle .content .tableContainer td span.btn.update.unable{
+    background-color: #e5e5e5;
+    border: 1px solid #e5e5e5;
+    color: rgb(204,204,204);
+    cursor: no-drop;
+}
+
+/*look*/
+/*.shadow .pop{
+    display: none;
+}*/
+.shadow .pop.look.lookSendPop1{
+    width: 420px;
+    height: 360px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    border-radius: 5px;
+    margin: -200px 0 0 -210px;
+    background-color: #ffffff;
+}
+.shadow .pop.look.lookUsePop1{
+    width: 420px;
+    height: 360px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    border-radius: 5px;
+    margin: -200px 0 0 -210px;
+    background-color: #ffffff;
+}
+.pop.look .container .search{
+    line-height: 40px;
+    border-radius:5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid rgb(204,204,204);
+}
+
+
+ 
+
+.pop.look .container .search{
+	height: 40px;
+    width: 274px;
+    border: 1px solid rgb(204,204,204);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.pop.look .container .search .searchBtn{
+    width: 40px;
+    height: 40px;
+    float: right;
+    display: inline-block;
+}
+.pop.look .container .storeList{
+    float: left;
+    height: 188px;
+    width:100%;
+    text-align: left;
+    overflow: auto;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(204,204,204);
+}
+.pop.look .container .storeList label{
+	padding-left:4px;
+    cursor: pointer;
+}
+li{
+	padding-left:4px;
+    cursor: pointer;
+}
+.pop.look .container .storeList li:hover{
+    background-color: rgba(204,204,204,.6);
+}
+
+/*addSale*/
+.pop.addSale{
+    height:540px;
+    overflow: auto;
+    width: 450px;
+    margin-left: -225px;
+    margin-top: -310px;
+}
+.pop.addSale .handle{
+    margin-bottom: 20px;
+}
+.pop.addSale p{
+    margin-bottom: 10px;
+    width:100%;
+    text-align: right;
+}
+.pop.addSale p>span:first-of-type{
+    margin-right: 5px;
+}
+
+.pop.addSale p>input{
+    width: 260px;
+    height: 36px;
+}
+.pop.addSale p.small>input{
+    width: 111px;
+    font-size: 13px;
+}
+.pop.addSale p.small>select{
+    width: 114px;
+    height: 40px;
+}
+.pop.addSale p .icon{
+    width: 231px;
+    cursor: pointer;
+    text-align: left;
+    display: inline-block;
+}
+.pop.addSale p .switch_on i{
+    width: 40px;
+    height: 22px;
+    display: inline-block;
+    background-position: -85px -85px;
+}
+.pop.addSale p .switch_off i{
+    width: 40px;
+    height: 22px;
+    display: inline-block;
+    background-position: -137px -85px
+}
+
+/*shadow_2*/
+.shadow_2 .storeList li>input[type="checkbox"]{
+    position: relative;
+    top: 1px;
+    margin-right: 5px;
+}
+.shadow .pop.look.lookSendPop,
+.shadow .pop.look.lookUsePop{
+    height:510px;
+    width:580px;
+    margin: -255px 0 0 -290px;
+}
+
+.shadow .pop.look.lookSendPop .container,
+.shadow .pop.look.lookUsePop .container
+{
+    float: left;
+    padding: 40px 40px 20px;
+}
+.shadow .pop .leftBar{
+    width:277px;
+    height: 339px;
+    float: left;
+    
+}
+.shadow .pop .rightBar{
+    width: 200px;
+    height: 339px;
+    float: left;
+    position: relative;
+    border: 1px solid #ccc;
+    margin-left: 20px;
+}
+.shadow .pop .leftBar .addToStore{
+    clear: both;
+    padding: 5px 0;
+    cursor: pointer;
+    color: rgb(101,206,167);
+    border: 1px solid rgb(101,206,167);
+}
+
+.shadow .pop .leftBar .formList{
+    width:227px;
+    height: 341px;
+    overflow: auto;
+    padding-top: 10px;
+    text-align: left;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(204,204,204);
+}
+.shadow .pop .leftBar .formList li{
+    width: 159px;
+}
+.shadow .pop .leftBar .formList li div>input{
+    position: relative;
+    margin-right: 10px;
+    top: 2px;
+}
+.shadow .pop .leftBar .formList li>ul{
+    display: block;
+}
+.shadow .pop .leftBar .formList li>ul>li{
+    padding-left: 24px;
+    background-color: #ffffff;
+}
+.shadow .pop .leftBar .formList li>div.icon i{
+    background-position: -194px -118px;
+    margin-right: 10px;
+    border: 1px solid #999;
+    background-color: #e5e5e5;
+    height: 10px;
+    top: 1px;
+    width:12px;
+}
+.shadow .pop .leftBar .formList li>div.icon.on i{
+    background-position: -222px -118px;
+}
+.shadow .pop.lookSendPop .container .storeList,
+.shadow .pop.lookUsePop .container .storeList
+{
+    width:275px;
+    height:228px;
+}
+
+.shadow .pop.lookSendPop .container .storeListck,
+.shadow .pop.lookUsePop .container .storeListck
+{	
+	float:left;
+    height: 300px;
+    text-align: left;
+    overflow: auto;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(204,204,204);
+    width:500px;
+}
+.shadow .pop .rightBar{
+    width: 200px;
+    height: 339px;
+    float: left;
+    position: relative;
+    border: 1px solid #ccc;
+    margin-left: 20px;
+}
+.shadow .pop .rightBar>h3{
+    height:40px;
+    line-height: 40px;
+    background-color: #e5e5e5;
+}
+.shadow .pop .rightBar>ul>li{
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    padding-left: 10px;
+}
+.shadow .pop .container .rightBar .delete{
+    position: absolute;
+    top:-25px;
+    height:20px;
+    right:100px;
+    text-align: left;
+    cursor: pointer;
+    padding-left: 20px;
+    background: url(../image/delete_01.png) 0 2px no-repeat;
+}
+.shadow .pop .container .rightBar .deleteAll{
+    right:0;
+    background: url(../image/deleteall_02.png) 0 2px no-repeat;
+}
+
+.select{
+    height:28px;
+     margin-bottom: 10px;
+}
+.storeListt{
+	float: left;
+    height: 289px;
+    width: 100%;
+    text-align: left;
+    overflow: auto;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(204,204,204);
+}
+.shadow .pop .leftBar>label{
+    margin-right: 5px;
+    line-height: 30px;
+}
+.select_container {
+    position: relative;
+    float: left;
+}
+.select:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    right: 1%;
+    top: 19%;
+    background: url(../image/icon_main.png) -170px -60px no-repeat;
+}
+.formList.select_ul {
+	position:absolute;
+	float: right;
+    height: 120px;
+    z-index: 2;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+  
+}
+.pop.addSale .overflow{
+    height:480px;
+    overflow: auto;
+}
+
+#zjfflyselectContainers,
+#zjsylyselectContainers,
+#xgfflyselectContainers,#xgsylyselectContainers{
+	     width: 220px;
+   		 height: 28px;
+		 border:none;
+		 margin-left: 5px;
+}
+#zjffytselectContainers,
+#zjsyytselectContainers,
+#xgffytselectContainers,
+#xgsyytselectContainers{
+	     width: 220px;
+   		 height: 28px;
+ 		 border:none;
+ 		 margin-left: 5px;
+}

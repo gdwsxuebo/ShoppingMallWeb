@@ -1,0 +1,45 @@
+.content .tableContainer table td .setCenterStore{
+    width:120px;
+    display: inline-block;
+    cursor: pointer;
+    line-height: 28px;
+    border-radius: 3px;
+    border: 1px solid rgb(66,79,99);
+}
+/*pop*/
+
+.pop .container .search{
+    line-height: 40px;
+    border-radius:5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid rgb(204,204,204);
+}
+.pop .container .search>input{
+    width: 297px;
+    height: 40px;
+    border: none;
+    border-right: 1px solid rgb(204,204,204);
+}
+.pop .container .search .searchBtn{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+.pop .container .storeList{
+    float: left;
+    height: 188px;
+    overflow: auto;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(204,204,204);
+}
+.pop .container .storeList ul>li{
+    float: left;
+    width:50%;
+    line-height: 27px;
+}
+.pop .container .storeList ul>li>input{
+    position: relative;
+    top: 2px;
+}

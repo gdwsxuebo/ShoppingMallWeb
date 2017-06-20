@@ -1,0 +1,109 @@
+.content .formList{
+    float: left;
+    margin-right: 60px;
+}
+.content .formList div>span.btn {
+    line-height: 40px;
+    display: inline-block;
+    color: #ffffff;
+    width: 80px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgb(66,79,99);
+}
+.content .formList div>small{
+    line-height: 40px;
+    font-size: 0.86em;
+    margin-left: 10px;
+}
+#erweima,
+#yulan{
+    margin: 10px 0;
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+#erweima:hover .close,
+#yulan:hover .close{
+    display: block;
+}
+.close{
+    position: absolute;
+    top:0;
+    right:0;
+    display: none;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+    cursor: pointer;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.content .formList .select_container{
+    position: relative;
+    float: left;
+}
+.content .formList .uploadImg{
+    float: left;
+    width: 53px;
+    line-height:38px;
+    border: 1px solid #999;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    text-align: center;
+    color: #ffffff;
+    background-color: rgb(66,79,99);
+}
+.select{
+    width: 76px;
+    background-color: rgb(66,79,99);
+    border-radius: 5px 0 0 5px;
+}
+.selectContainer{
+    color: #ffffff;
+    line-height: 40px;
+}
+.select_ul{
+    height: 60px;
+    width: 76px;
+    z-index: 2;
+}
+
+/*CHECK*/
+.content .check{
+    width: 776px;
+    float: left;
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgb(239,240,244);
+}
+.content .check>h4{
+    margin-bottom: 20px;
+}
+.content .check>div{
+    width: 559px;
+    height: 310px;
+    padding: 55px 55px 160px 55px;
+    margin: 0 auto;
+    background: url('../image/pos.png') 0 0 no-repeat;
+}
+.content .check .logo{
+    height: 25px;
+    background-color: grey;
+    line-height: 25px;
+    text-align: center;
+}
+.content .check .imgAndMoney>div{
+    float: left;
+    height: 293px;
+}
+.content .check .imgAndMoney>.img{
+    width:80%;
+    background-color: red;
+}
+.content .check .imgAndMoney>.money{
+    width:20%;
+    background-color: #1b6d85;
+}

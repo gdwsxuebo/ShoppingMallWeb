@@ -1,0 +1,16 @@
+{
+	"离线可用": {
+		"name": "离线可用",
+		"additionalParameters": {
+			"id": "1"
+		},
+		"type": "item"
+	},
+	"离线不可用": {
+		"name": "离线不可用",
+		"additionalParameters": {
+			"id": "2"
+		},
+		"type": "item"
+	}
+}	

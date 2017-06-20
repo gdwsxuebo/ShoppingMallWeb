@@ -1,0 +1,14 @@
+.right .middle .content .tableContainer td span.btn{
+    display: inline-block;
+    width: 72px;
+    text-align: center;
+    border-radius: 5px;
+    color: rgb(66,79,99);
+    margin-left: 10px;
+    font-weight: bold;
+    border: 1px solid rgb(66,79,99);
+    line-height: 26px;
+}
+.right .middle.son{
+    display: none;
+}

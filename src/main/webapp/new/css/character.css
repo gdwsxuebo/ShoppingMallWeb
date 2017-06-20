@@ -1,0 +1,66 @@
+.right .middle .content .tableContainer td span.btn.set{
+    border: 1px solid rgb(153,153,153);
+    width: 70px;
+    color: rgb(153,153,153);
+}
+.shadow .pop .formList>div>span{
+    display: inline-block;
+    width: 60px;
+    text-align: right;
+}
+
+/**/
+.pop.addCharacter,
+.pop.setPop{
+    display: none;
+    height: 360px;
+    margin-top: -180px;
+}
+.pop.addCharacter {
+    height: 480px;
+    margin-top: -240px;
+}
+.select_container{
+    position: relative;
+    float: left;
+}
+.select_ul{
+    height: 120px;
+}
+.select{
+    margin-bottom: 10px;
+}
+
+
+.pop.setPop .formList{
+    float: left;
+    width:100%;
+    height: 188px;
+    overflow: auto;
+    padding-top: 10px;
+    text-align: left;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(204,204,204);
+}
+.pop.setPop .formList li{
+    width: 200px;
+}
+.pop.setPop .formList li div>input{
+    position: relative;
+    margin-right: 10px;
+    top: 2px;
+}
+.pop.setPop .formList li>ul{
+    display: none;
+}
+.pop.setPop .formList li>ul>li{
+    padding-left: 23px;
+    background-color: #ffffff;
+}
+.pop.setPop .formList li>div.icon i{
+    background-position: -190px -115px;
+}
+.pop.setPop .formList li>div.icon.on i{
+    background-position: -218px -115px;
+}

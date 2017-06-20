@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="smw.xfStoreCenter" >
+  <resultMap id="BaseResultMap" type="com.smw.pojo.XfStoreCenter" >
+    <id column="xf_centerstorecode" property="xfCenterstorecode" jdbcType="VARCHAR" />
+    <id column="xf_storecode" property="xfStorecode" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="smw.xfStoreCenter.deleteById" parameterType="com.smw.pojo.XfStoreCenter" >
+    delete from xf_store_center
+    where xf_centerstorecode = #{xfCenterstorecode,jdbcType=VARCHAR}
+      and xf_storecode = #{xfStorecode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="smw.xfStoreCenter.insert" parameterType="com.smw.pojo.XfStoreCenter" >
+    insert into xf_store_center (xf_centerstorecode, xf_storecode)
+    values (#{xfCenterstorecode,jdbcType=VARCHAR}, #{xfStorecode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="smw.xfStoreCenter.insertSelective" parameterType="com.smw.pojo.XfStoreCenter" >
+    insert into xf_store_center
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="xfCenterstorecode != null" >
+        xf_centerstorecode,
+      </if>
+      <if test="xfStorecode != null" >
+        xf_storecode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="xfCenterstorecode != null" >
+        #{xfCenterstorecode,jdbcType=VARCHAR},
+      </if>
+      <if test="xfStorecode != null" >
+        #{xfStorecode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

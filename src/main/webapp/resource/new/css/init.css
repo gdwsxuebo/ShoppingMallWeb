@@ -1,0 +1,69 @@
+body{
+    font-size: 1.4rem;
+    background: url(../image/login_bg1.png) 0 0/100% 100% no-repeat;
+}
+.loginSec{
+    background: url(../image/login_bg2.png) 0 0/100% 100% no-repeat;
+    height: 621px;
+    width: 914px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin: -290px auto auto -487px;
+}
+.loginSec .title>h4{
+    color: rgb(101,206,167);
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+.loginSec .right{
+    padding-top: 40px;
+}
+.loginSec .handleSec>p{
+    margin-bottom: 20px;
+}
+.loginSec .handleSec input{
+    height: 40px;
+    width: 280px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(240,241,245);
+    border-radius: 5px;
+}
+.loginSec .handleSec input.barCode{
+    width: 170px;
+}
+.loginSec .handleSec .barCodeImg img{
+    margin: -4px auto auto 5px;
+    cursor: pointer;
+}
+.loginSec .handleSec .confirm{
+    width: 290px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background-color: rgb(101,206,167);
+}
+
+.loginSec .handleSec>p>.icon{
+    width: 240px;
+    display: inline-block;
+    text-align: left;
+}
+.loginSec .handleSec>p>.icon.switch_on i{
+    width: 40px;
+    height: 22px;
+    display: inline-block;
+    background-position: -85px -85px;
+}
+.loginSec .handleSec>p>.icon.switch_off i{
+    width: 40px;
+    height: 22px;
+    display: inline-block;
+    background-position: -137px -85px;
+}
+

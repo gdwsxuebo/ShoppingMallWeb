@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="smw.salesItem" >
+  <resultMap id="BaseResultMap" type="com.smw.pojo.SalesItem" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="txdocno" property="txdocno" jdbcType="VARCHAR" />
+    <result column="lineno" property="lineno" jdbcType="INTEGER" />
+    <result column="plu" property="plu" jdbcType="VARCHAR" />
+    <result column="qty" property="qty" jdbcType="DECIMAL" />
+    <result column="discountamount" property="discountamount" jdbcType="DECIMAL" />
+    <result column="netamount" property="netamount" jdbcType="DECIMAL" />
+    <result column="bonusearn" property="bonusearn" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, txdocno, lineno, plu, qty, discountamount, netamount, bonusearn
+  </sql>
+  <select id="smw.salesItem.selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sales_item
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="smw.salesItem.deleteById" parameterType="java.lang.Integer" >
+    delete from sales_item
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="smw.salesItem.insert" parameterType="com.smw.pojo.SalesItem" >
+    insert into sales_item (id, txdocno, lineno, 
+      plu, qty, discountamount, 
+      netamount, bonusearn)
+    values (#{id,jdbcType=INTEGER}, #{txdocno,jdbcType=VARCHAR}, #{lineno,jdbcType=INTEGER}, 
+      #{plu,jdbcType=VARCHAR}, #{qty,jdbcType=DECIMAL}, #{discountamount,jdbcType=DECIMAL}, 
+      #{netamount,jdbcType=DECIMAL}, #{bonusearn,jdbcType=DECIMAL})
+  </insert>
+  <insert id="smw.salesItem.insertSelective" parameterType="com.smw.pojo.SalesItem" >
+    insert into sales_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="txdocno != null" >
+        txdocno,
+      </if>
+      <if test="lineno != null" >
+        lineno,
+      </if>
+      <if test="plu != null" >
+        plu,
+      </if>
+      <if test="qty != null" >
+        qty,
+      </if>
+      <if test="discountamount != null" >
+        discountamount,
+      </if>
+      <if test="netamount != null" >
+        netamount,
+      </if>
+      <if test="bonusearn != null" >
+        bonusearn,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="txdocno != null" >
+        #{txdocno,jdbcType=VARCHAR},
+      </if>
+      <if test="lineno != null" >
+        #{lineno,jdbcType=INTEGER},
+      </if>
+      <if test="plu != null" >
+        #{plu,jdbcType=VARCHAR},
+      </if>
+      <if test="qty != null" >
+        #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="discountamount != null" >
+        #{discountamount,jdbcType=DECIMAL},
+      </if>
+      <if test="netamount != null" >
+        #{netamount,jdbcType=DECIMAL},
+      </if>
+      <if test="bonusearn != null" >
+        #{bonusearn,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="smw.salesItem.updateByIdSelective" parameterType="com.smw.pojo.SalesItem" >
+    update sales_item
+    <set >
+      <if test="txdocno != null" >
+        txdocno = #{txdocno,jdbcType=VARCHAR},
+      </if>
+      <if test="lineno != null" >
+        lineno = #{lineno,jdbcType=INTEGER},
+      </if>
+      <if test="plu != null" >
+        plu = #{plu,jdbcType=VARCHAR},
+      </if>
+      <if test="qty != null" >
+        qty = #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="discountamount != null" >
+        discountamount = #{discountamount,jdbcType=DECIMAL},
+      </if>
+      <if test="netamount != null" >
+        netamount = #{netamount,jdbcType=DECIMAL},
+      </if>
+      <if test="bonusearn != null" >
+        bonusearn = #{bonusearn,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="smw.salesItem.updateById" parameterType="com.smw.pojo.SalesItem" >
+    update sales_item
+    set txdocno = #{txdocno,jdbcType=VARCHAR},
+      lineno = #{lineno,jdbcType=INTEGER},
+      plu = #{plu,jdbcType=VARCHAR},
+      qty = #{qty,jdbcType=DECIMAL},
+      discountamount = #{discountamount,jdbcType=DECIMAL},
+      netamount = #{netamount,jdbcType=DECIMAL},
+      bonusearn = #{bonusearn,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="smw.xfStaffRole" >
+  <resultMap id="BaseResultMap" type="com.smw.pojo.XfStaffRole" >
+    <id column="authority" property="authority" jdbcType="VARCHAR" />
+    <id column="xf_staffcode" property="xfStaffcode" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="smw.xfStaffRole.deleteById" parameterType="com.smw.pojo.XfStaffRole" >
+    delete from xf_staff_role
+    where authority = #{authority,jdbcType=VARCHAR}
+      and xf_staffcode = #{xfStaffcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="smw.xfStaffRole.insert" parameterType="com.smw.pojo.XfStaffRole" >
+    insert into xf_staff_role (authority, xf_staffcode)
+    values (#{authority,jdbcType=VARCHAR}, #{xfStaffcode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="smw.xfStaffRole.insertSelective" parameterType="com.smw.pojo.XfStaffRole" >
+    insert into xf_staff_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="authority != null" >
+        authority,
+      </if>
+      <if test="xfStaffcode != null" >
+        xf_staffcode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="authority != null" >
+        #{authority,jdbcType=VARCHAR},
+      </if>
+      <if test="xfStaffcode != null" >
+        #{xfStaffcode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

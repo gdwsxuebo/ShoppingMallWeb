@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="smw.xfMall" >
+  <resultMap id="BaseResultMap" type="com.smw.pojo.XfMall" >
+    <id column="xf_mallid" property="xfMallid" jdbcType="VARCHAR" />
+    <result column="xf_mallname" property="xfMallname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    xf_mallid, xf_mallname
+  </sql>
+  <select id="smw.xfMall.selectMallList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xf_mall
+  </select>
+  <select id="smw.xfMall.selectById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from xf_mall
+    where xf_mallid = #{xfMallid,jdbcType=VARCHAR}
+  </select>
+  <delete id="smw.xfMall.deleteById" parameterType="java.lang.String" >
+    delete from xf_mall
+    where xf_mallid = #{xfMallid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="smw.xfMall.insert" parameterType="com.smw.pojo.XfMall" >
+    insert into xf_mall (xf_mallid, xf_mallname)
+    values (#{xfMallid,jdbcType=VARCHAR}, #{xfMallname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="smw.xfMall.insertSelective" parameterType="com.smw.pojo.XfMall" >
+    insert into xf_mall
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="xfMallid != null" >
+        xf_mallid,
+      </if>
+      <if test="xfMallname != null" >
+        xf_mallname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="xfMallid != null" >
+        #{xfMallid,jdbcType=VARCHAR},
+      </if>
+      <if test="xfMallname != null" >
+        #{xfMallname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="smw.xfMall.updateByIdSelective" parameterType="com.smw.pojo.XfMall" >
+    update xf_mall
+    <set >
+      <if test="xfMallname != null" >
+        xf_mallname = #{xfMallname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where xf_mallid = #{xfMallid,jdbcType=VARCHAR}
+  </update>
+  <update id="smw.xfMall.updateById" parameterType="com.smw.pojo.XfMall" >
+    update xf_mall
+    set xf_mallname = #{xfMallname,jdbcType=VARCHAR}
+    where xf_mallid = #{xfMallid,jdbcType=VARCHAR}
+  </update>
+</mapper>

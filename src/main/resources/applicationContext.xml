@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/task
+	http://www.springframework.org/schema/task/spring-task-4.0.xsd
+	http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util-4.0.xsd
+    http://www.springframework.org/schema/mvc
+ 	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd"
+	default-lazy-init="false">
+
+	<!-- 上下文注解 -->
+	<context:annotation-config />
+
+	<!-- 开启定时任务注解 -->
+	<task:annotation-driven />
+    
+	<context:component-scan base-package="com.smw,com.gws"></context:component-scan>
+
+	<context:property-placeholder location="classpath:/jdbc.properties"
+		file-encoding="UTF-8" order="0" />
+
+	<!-- 数据源 -->
+	<bean name="alibabaDataSources" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<!-- 数据源驱动类可不写，Druid默认会自动根据URL识别DriverClass -->
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<!-- 基本属性 url、user、password -->
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 配置初始化大小、最小、最大连接数 -->
+		<property name="initialSize" value="20" />
+		<property name="minIdle" value="10" />
+		<property name="maxActive" value="300" />
+		<!-- 配置获取连接等待超时的时间 -->
+    	<property name="maxWait" value="60000" />
+    	<!-- 超过时间限制是否回收 -->
+		<property name="removeAbandoned" value="true" />
+		<!-- 超过时间限制多长、泄露的连接可以被删除的超时值, 单位秒 -->
+		<property name="removeAbandonedTimeout" value="1800" />
+    	<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+    	<property name="timeBetweenEvictionRunsMillis" value="60000" />
+    	<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+    	<property name="minEvictableIdleTimeMillis" value="300000" />
+    	<!-- 申请连接的时候检测建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效  -->
+		<property name="testWhileIdle" value="true" />
+		<!-- 申请连接时执行validationQuery检测连接是否有效，配置为true会降低性能 -->
+		<property name="testOnBorrow" value="false" />
+		<!-- 归还连接时执行validationQuery检测连接是否有效，配置为true会降低性能  -->
+		<property name="testOnReturn" value="false" />
+		<!-- 打开PSCache，并且指定每个连接上PSCache的大小 如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。分库分表较多的数据库，建议配置为false-->
+		<property name="poolPreparedStatements" value="true" />		
+		<property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+		<!-- 登录超时  -->
+		<property name="loginTimeout" value="10000" />
+		<!-- 标记是否删除泄露的连接,如果他们超过了removeAbandonedTimout的限制.如果设置为true, 连接被认为是被泄露并且可以被删除,如果空闲时间超过removeAbandonedTimeout. 设置为true可以为写法糟糕的没有关闭连接的程序修复数据库连接 -->
+		<property name="accessToUnderlyingConnectionAllowed" value="true" />
+		<!-- 最多等待线程 -->
+		<property name="maxWaitThreadCount" value="1000" />
+		<!-- 对于事务是否是autoCommit(自动提交)，默认为true -->
+		<property name="defaultAutoCommit" value="false" />
+		<!-- 用来检测连接是否有效的sql，要求是一个查询语句-->
+		<property name="validationQuery" value="SELECT 1 FROM DUAL" />
+	</bean>
+
+
+	<!-- hibernate sessionFactory -->
+	<bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
+		id="sessionFactory">
+		<property name="dataSource" ref="alibabaDataSources" />
+		<property name="packagesToScan">
+		<list>
+		<value>com.smw.pojo</value>
+		<value>com.gws.pojo</value>
+		</list>
+		</property>
+		<property name="hibernateProperties">
+			<!-- <props> 
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop> 
+				<prop key="hibernate.show_sql">false</prop> <prop key="hibernate.format_sql">true</prop> 
+				<prop key="hibernate.hbm2ddl.auto">update</prop> <prop key="hibernate.cache.use_sencond_level_cache">false</prop> 
+				<prop key="hibernate.cache.use_query_cache">false</prop> <prop key="hibernate.order_updates">true</prop> 
+				<prop key="hibernate.jdbc.fetch_size">10</prop> <prop key="hibernate.jdbc.batch_size">10</prop> 
+				<prop key="hibernate.cache.provider_class"> org.hibernate.cache.EhCacheProvider</prop> 
+				<prop key="hibernate.query.factory_class"> org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop> 
+				<prop key="hibernate.connection.release_mode">after_transaction</prop> 
+			</props> -->
+			<value>                  <!-- 设置数据库方言 -->
+				hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+				<!-- 设置自动创建|更新|验证数据库表结构 -->
+				hibernate.hbm2ddl.auto=update
+				<!-- 是否在控制台显示sql -->
+				hibernate.show_sql=false
+				<!-- 是否格式化sql，优化显示 -->
+				hibernate.format_sql=false
+				<!-- 是否开启二级缓存 -->
+				hibernate.cache.use_second_level_cache=false
+				<!-- 是否开启查询缓存 -->
+				hibernate.cache.use_query_cache=false
+				<!-- 数据库批量查询最大数 -->
+				hibernate.jdbc.fetch_size=50
+				<!-- 数据库批量更新、添加、删除操作最大数 -->
+				hibernate.jdbc.batch_size=50
+				<!-- 是否自动提交事务 -->
+				hibernate.connection.autocommit=true
+				<!-- 指定hibernate在何时释放JDBC连接 -->
+				 hibernate.connection.release_mode=auto
+				<!-- 创建session方式 hibernate5.x 的方式 -->
+				hibernate.current_session_context_class=org.springframework.orm.hibernate5.SpringSessionContext
+				<!--javax.persistence.validation.mode默认情况下是auto的，就是说如果不设置的话它是会自动去你的classpath下面找一个bean-validation**包所以把它设置为none即可 -->
+				javax.persistence.validation.mode=none
+				
+				hibernate.event.merge.entity_copy_observer=allow
+			</value>
+		</property>
+	</bean>
+
+
+	<bean class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+
+	<!-- hibernate 事物 -->
+	<bean class="org.springframework.orm.hibernate5.HibernateTransactionManager"
+		id="hibernate5Transaction">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<!-- 如果isGlobalRollbackOnParticipationFailure为false,则会让主事务决定回滚， 如果当遇到exception加入事务失败时，调用者能继续在事务内决定是回滚还是继续。 
+			然而，要注意是那样做仅仅适用于在数据访问失败的情况下且只要所有操作事务能提交 -->
+		<property name="globalRollbackOnParticipationFailure" value="false" />
+	</bean>
+
+	<aop:config>
+		<aop:pointcut expression="execution(* com.smw.service.*.*.**(..)) or execution(* com.gws.service.*.*.**(..))"
+			id="transactionPointCut" />
+		<aop:advisor advice-ref="hadvice" pointcut-ref="transactionPointCut" />
+	</aop:config>
+
+	<tx:advice transaction-manager="hibernate5Transaction" id="hadvice">
+		<tx:attributes>
+			<tx:method name="*" read-only="true" />
+			<tx:method name="login*" propagation="REQUIRED" rollback-for="Throwable" />
+			<tx:method name="save*" propagation="REQUIRED" rollback-for="Throwable" />
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="Throwable" />
+			<tx:method name="update*" propagation="REQUIRED" rollback-for="Throwable" />
+			<tx:method name="delete*" propagation="REQUIRED" rollback-for="Throwable" />
+			<tx:method name="edit*" propagation="REQUIRED" rollback-for="Throwable" />
+			<tx:method name="get*" propagation="REQUIRED" rollback-for="Throwable" />
+			<tx:method name="del*" propagation="REQUIRED" rollback-for="Throwable" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 初始  -->
+	<bean id="sysInit" class="com.smw.common.init.Init" init-method="init"/>
+	<!--增加springMVC 运行时异常记录日志 -->
+	<bean id="exceptionHandler" class="com.smw.interceptor.MyExceptionHandler"/>
+</beans>

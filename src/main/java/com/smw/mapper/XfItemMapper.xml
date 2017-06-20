@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="smw.xfItem" >
+  <resultMap id="BaseResultMap" type="com.smw.pojo.XfItem" >
+    <id column="xf_plu" property="xfPlu" jdbcType="VARCHAR" />
+    <result column="xf_storecode" property="xfStorecode" jdbcType="VARCHAR" />
+    <result column="xf_desci" property="xfDesci" jdbcType="VARCHAR" />
+    <result column="xf_longdesc" property="xfLongdesc" jdbcType="VARCHAR" />
+    <result column="xf_stkunit" property="xfStkunit" jdbcType="VARCHAR" />
+    <result column="xf_salesunit" property="xfSalesunit" jdbcType="VARCHAR" />
+    <result column="xf_exstk2sales" property="xfExstk2sales" jdbcType="DECIMAL" />
+    <result column="xf_orguprice" property="xfOrguprice" jdbcType="DECIMAL" />
+    <result column="xf_orgwprice" property="xfOrgwprice" jdbcType="DECIMAL" />
+    <result column="xf_seluprice" property="xfSeluprice" jdbcType="DECIMAL" />
+    <result column="xf_selwprice" property="xfSelwprice" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    xf_plu, xf_storecode, xf_desci, xf_longdesc, xf_stkunit, xf_salesunit, xf_exstk2sales, 
+    xf_orguprice, xf_orgwprice, xf_seluprice, xf_selwprice
+  </sql>
+  <select id="smw.xfItem.selectById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from xf_item
+    where xf_plu = #{xfPlu,jdbcType=VARCHAR}
+  </select>
+  <select id="smw.xfItem.selectListByStoreCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+   	from xf_item
+    where xf_storecode = #{storecode,jdbcType=VARCHAR}
+  </select>
+  <delete id="smw.xfItem.deleteById" parameterType="java.lang.String" >
+    delete from xf_item
+    where xf_plu = #{xfPlu,jdbcType=VARCHAR}
+  </delete>
+  <insert id="smw.xfItem.insert" parameterType="com.smw.pojo.XfItem" >
+    insert into xf_item (xf_plu, xf_storecode, xf_desci, 
+      xf_longdesc, xf_stkunit, xf_salesunit, 
+      xf_exstk2sales, xf_orguprice, xf_orgwprice, 
+      xf_seluprice, xf_selwprice)
+    values (#{xfPlu,jdbcType=VARCHAR}, #{xfStorecode,jdbcType=VARCHAR}, #{xfDesci,jdbcType=VARCHAR}, 
+      #{xfLongdesc,jdbcType=VARCHAR}, #{xfStkunit,jdbcType=VARCHAR}, #{xfSalesunit,jdbcType=VARCHAR}, 
+      #{xfExstk2sales,jdbcType=DECIMAL}, #{xfOrguprice,jdbcType=DECIMAL}, #{xfOrgwprice,jdbcType=DECIMAL}, 
+      #{xfSeluprice,jdbcType=DECIMAL}, #{xfSelwprice,jdbcType=DECIMAL})
+  </insert>
+  <insert id="smw.xfItem.insertSelective" parameterType="com.smw.pojo.XfItem" >
+    insert into xf_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="xfPlu != null" >
+        xf_plu,
+      </if>
+      <if test="xfStorecode != null" >
+        xf_storecode,
+      </if>
+      <if test="xfDesci != null" >
+        xf_desci,
+      </if>
+      <if test="xfLongdesc != null" >
+        xf_longdesc,
+      </if>
+      <if test="xfStkunit != null" >
+        xf_stkunit,
+      </if>
+      <if test="xfSalesunit != null" >
+        xf_salesunit,
+      </if>
+      <if test="xfExstk2sales != null" >
+        xf_exstk2sales,
+      </if>
+      <if test="xfOrguprice != null" >
+        xf_orguprice,
+      </if>
+      <if test="xfOrgwprice != null" >
+        xf_orgwprice,
+      </if>
+      <if test="xfSeluprice != null" >
+        xf_seluprice,
+      </if>
+      <if test="xfSelwprice != null" >
+        xf_selwprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="xfPlu != null" >
+        #{xfPlu,jdbcType=VARCHAR},
+      </if>
+      <if test="xfStorecode != null" >
+        #{xfStorecode,jdbcType=VARCHAR},
+      </if>
+      <if test="xfDesci != null" >
+        #{xfDesci,jdbcType=VARCHAR},
+      </if>
+      <if test="xfLongdesc != null" >
+        #{xfLongdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="xfStkunit != null" >
+        #{xfStkunit,jdbcType=VARCHAR},
+      </if>
+      <if test="xfSalesunit != null" >
+        #{xfSalesunit,jdbcType=VARCHAR},
+      </if>
+      <if test="xfExstk2sales != null" >
+        #{xfExstk2sales,jdbcType=DECIMAL},
+      </if>
+      <if test="xfOrguprice != null" >
+        #{xfOrguprice,jdbcType=DECIMAL},
+      </if>
+      <if test="xfOrgwprice != null" >
+        #{xfOrgwprice,jdbcType=DECIMAL},
+      </if>
+      <if test="xfSeluprice != null" >
+        #{xfSeluprice,jdbcType=DECIMAL},
+      </if>
+      <if test="xfSelwprice != null" >
+        #{xfSelwprice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="smw.xfItem.updateByIdSelective" parameterType="com.smw.pojo.XfItem" >
+    update xf_item
+    <set >
+      <if test="xfStorecode != null" >
+        xf_storecode = #{xfStorecode,jdbcType=VARCHAR},
+      </if>
+      <if test="xfDesci != null" >
+        xf_desci = #{xfDesci,jdbcType=VARCHAR},
+      </if>
+      <if test="xfLongdesc != null" >
+        xf_longdesc = #{xfLongdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="xfStkunit != null" >
+        xf_stkunit = #{xfStkunit,jdbcType=VARCHAR},
+      </if>
+      <if test="xfSalesunit != null" >
+        xf_salesunit = #{xfSalesunit,jdbcType=VARCHAR},
+      </if>
+      <if test="xfExstk2sales != null" >
+        xf_exstk2sales = #{xfExstk2sales,jdbcType=DECIMAL},
+      </if>
+      <if test="xfOrguprice != null" >
+        xf_orguprice = #{xfOrguprice,jdbcType=DECIMAL},
+      </if>
+      <if test="xfOrgwprice != null" >
+        xf_orgwprice = #{xfOrgwprice,jdbcType=DECIMAL},
+      </if>
+      <if test="xfSeluprice != null" >
+        xf_seluprice = #{xfSeluprice,jdbcType=DECIMAL},
+      </if>
+      <if test="xfSelwprice != null" >
+        xf_selwprice = #{xfSelwprice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where xf_plu = #{xfPlu,jdbcType=VARCHAR}
+  </update>
+  <update id="smw.xfItem.updateById" parameterType="com.smw.pojo.XfItem" >
+    update xf_item
+    set xf_storecode = #{xfStorecode,jdbcType=VARCHAR},
+      xf_desci = #{xfDesci,jdbcType=VARCHAR},
+      xf_longdesc = #{xfLongdesc,jdbcType=VARCHAR},
+      xf_stkunit = #{xfStkunit,jdbcType=VARCHAR},
+      xf_salesunit = #{xfSalesunit,jdbcType=VARCHAR},
+      xf_exstk2sales = #{xfExstk2sales,jdbcType=DECIMAL},
+      xf_orguprice = #{xfOrguprice,jdbcType=DECIMAL},
+      xf_orgwprice = #{xfOrgwprice,jdbcType=DECIMAL},
+      xf_seluprice = #{xfSeluprice,jdbcType=DECIMAL},
+      xf_selwprice = #{xfSelwprice,jdbcType=DECIMAL}
+    where xf_plu = #{xfPlu,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,143 @@
+.content .formList{
+    float: left;
+}
+.content .formList div>span.btn {
+    line-height: 40px;
+    display: inline-block;
+    color: #ffffff;
+    width: 80px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgb(66,79,99);
+}
+.content .formList div>small{
+    line-height: 40px;
+    font-size: 0.86em;
+    margin-left: 10px;
+}
+#erweima,
+#yulan{
+    margin: 10px 0;
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+#erweima:hover .close,
+#yulan:hover .close{
+    display: block;
+}
+.close{
+    position: absolute;
+    top:0;
+    right:0;
+    display: none;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+    cursor: pointer;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.content .formList .select_container{
+    position: relative;
+    float: left;
+}
+.content .formList .uploadImg{
+    float: left;
+    width: 53px;
+    line-height:38px;
+    border: 1px solid #999;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    text-align: center;
+    color: #ffffff;
+    background-color: rgb(66,79,99);
+}
+.select{
+    width: 76px;
+    background-color: rgb(66,79,99);
+    border-radius: 5px 0 0 5px;
+}
+.selectContainer{
+    color: #ffffff;
+    line-height: 40px;
+}
+.select_ul{
+    height: 60px;
+    width: 76px;
+    z-index: 2;
+}
+
+/*CHECK*/
+.content .check{
+    width: 776px;
+    float: left;
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgb(239,240,244);
+    margin-left: 60px;
+}
+.content .check>h4{
+    margin-bottom: 20px;
+}
+
+.select{
+    display: inline-block;
+    height: 38px;
+    float: right;
+    text-align: left;
+    border: 1px solid #999;
+}
+.select>.selectContainer{
+    padding-left: 10px;
+}
+.select:after{
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 15px;
+    background: url(../image/icon_main.png) -170px -60px no-repeat;
+}
+.select_ul{
+    position: absolute;
+    overflow: auto;
+    top: 38px;
+    right: 0;
+    z-index: 2;
+    text-align: left;
+    display: none;
+    border: 1px solid #999;
+}
+.select_ul>li{
+    line-height: 30px;
+    background: #ffffff;
+    padding-left: 6px;
+    color: rgb(153, 153, 153);
+}
+.select_ul>li:hover{
+    background-color: rgb(238,238,238);
+}
+.select_ul .first{
+    height: 42px;
+    padding-top: 6px;
+}
+.select_ul .first>input{
+    width: 182px;
+    height: 30px;
+    border: 1px solid #999;
+    border-radius: 3px 0 0 3px;
+}
+.select_ul .first>span{
+    border: 1px solid #999;
+    border-left: none;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 2px;
+    color: rgb(66, 79, 99);
+    border-radius: 0 3px 3px 0;
+}

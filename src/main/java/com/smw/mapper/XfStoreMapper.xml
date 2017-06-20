@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="smw.xfStore" >
+  <resultMap id="BaseResultMap" type="com.smw.pojo.XfStore" >
+    <id column="xf_storecode" property="xfStorecode" jdbcType="VARCHAR" />
+    <result column="xf_name" property="xfName" jdbcType="VARCHAR" />
+    <result column="xf_mallid" property="xfMallid" jdbcType="VARCHAR" />
+    <result column="xf_tillcount" property="xfTillcount" jdbcType="INTEGER" />
+    <result column="xf_update" property="xfUpdate" jdbcType="BIT" />
+    <result column="xf_center" property="xfCenter" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    xf_storecode, xf_name, xf_mallid, xf_tillcount, xf_update, xf_center
+  </sql>
+  <select id="smw.xfStore.selectById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from xf_store
+    where xf_storecode = #{xfStorecode,jdbcType=VARCHAR}
+  </select>
+  <delete id="smw.xfStore.deleteById" parameterType="java.lang.String" >
+    delete from xf_store
+    where xf_storecode = #{xfStorecode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.smw.pojo.XfStore" >
+    insert into xf_store (xf_storecode, xf_name, xf_mallid, 
+      xf_tillcount, xf_update, xf_center
+      )
+    values (#{xfStorecode,jdbcType=VARCHAR}, #{xfName,jdbcType=VARCHAR}, #{xfMallid,jdbcType=VARCHAR}, 
+      #{xfTillcount,jdbcType=INTEGER}, #{xfUpdate,jdbcType=BIT}, #{xfCenter,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="smw.xfStore.insertSelective" parameterType="com.smw.pojo.XfStore" >
+    insert into xf_store
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="xfStorecode != null" >
+        xf_storecode,
+      </if>
+      <if test="xfName != null" >
+        xf_name,
+      </if>
+      <if test="xfMallid != null" >
+        xf_mallid,
+      </if>
+      <if test="xfTillcount != null" >
+        xf_tillcount,
+      </if>
+      <if test="xfUpdate != null" >
+        xf_update,
+      </if>
+      <if test="xfCenter != null" >
+        xf_center,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="xfStorecode != null" >
+        #{xfStorecode,jdbcType=VARCHAR},
+      </if>
+      <if test="xfName != null" >
+        #{xfName,jdbcType=VARCHAR},
+      </if>
+      <if test="xfMallid != null" >
+        #{xfMallid,jdbcType=VARCHAR},
+      </if>
+      <if test="xfTillcount != null" >
+        #{xfTillcount,jdbcType=INTEGER},
+      </if>
+      <if test="xfUpdate != null" >
+        #{xfUpdate,jdbcType=BIT},
+      </if>
+      <if test="xfCenter != null" >
+        #{xfCenter,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="smw.xfStore.updateByIdSelective" parameterType="com.smw.pojo.XfStore" >
+    update xf_store
+    <set >
+      <if test="xfName != null" >
+        xf_name = #{xfName,jdbcType=VARCHAR},
+      </if>
+      <if test="xfMallid != null" >
+        xf_mallid = #{xfMallid,jdbcType=VARCHAR},
+      </if>
+      <if test="xfTillcount != null" >
+        xf_tillcount = #{xfTillcount,jdbcType=INTEGER},
+      </if>
+      <if test="xfUpdate != null" >
+        xf_update = #{xfUpdate,jdbcType=BIT},
+      </if>
+      <if test="xfCenter != null" >
+        xf_center = #{xfCenter,jdbcType=BIT},
+      </if>
+    </set>
+    where xf_storecode = #{xfStorecode,jdbcType=VARCHAR}
+  </update>
+  <update id="smw.xfStore.updateById" parameterType="com.smw.pojo.XfStore" >
+    update xf_store
+    set xf_name = #{xfName,jdbcType=VARCHAR},
+      xf_mallid = #{xfMallid,jdbcType=VARCHAR},
+      xf_tillcount = #{xfTillcount,jdbcType=INTEGER},
+      xf_update = #{xfUpdate,jdbcType=BIT},
+      xf_center = #{xfCenter,jdbcType=BIT}
+    where xf_storecode = #{xfStorecode,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,30 @@
+{
+	"--请选择--": {
+		"name": "--请选择--",
+		"label": {
+			"id": "0"
+		},
+		"type": "item"
+	},
+	"server端": {
+		"name": "server端",
+		"label": {
+			"id": "1"
+		},
+		"type": "item"
+	},
+	"pos端": {
+		"name": "pos端",
+		"label": {
+			"id": "2"
+		},
+		"type": "item"
+	},
+	"server端和pos端": {
+		"name": "server端和pos端",
+		"label": {
+			"id": "3"
+		},
+		"type": "item"
+	}
+}	

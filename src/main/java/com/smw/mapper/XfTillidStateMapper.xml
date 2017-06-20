@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="smw.xfTillidState" >
+  <resultMap id="BaseResultMap" type="com.smw.pojo.XfTillidState" >
+    <id column="tillid" property="tillid" jdbcType="VARCHAR" />
+    <id column="xf_storecode" property="xfStorecode" jdbcType="VARCHAR" />
+    <result column="device_info" property="deviceInfo" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="visit_time" property="visitTime" jdbcType="TIMESTAMP" />
+    <result column="xf_update" property="xfUpdate" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tillid, xf_storecode, device_info, ip, visit_time, xf_update
+  </sql>
+  <select id="smw.xfTillidState.selectById" resultMap="BaseResultMap" parameterType="com.smw.pojo.XfTillidStateKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from xf_tillid_state
+    where tillid = #{tillid,jdbcType=VARCHAR}
+  </select>
+  <delete id="smw.xfTillidState.deleteById" parameterType="com.smw.pojo.XfTillidStateKey" >
+    delete from xf_tillid_state
+    where tillid = #{tillid,jdbcType=VARCHAR}
+      and xf_storecode = #{xfStorecode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="smw.xfTillidState.insert" parameterType="com.smw.pojo.XfTillidState" >
+    insert into xf_tillid_state (tillid, xf_storecode, device_info, 
+      ip, visit_time, xf_update
+      )
+    values (#{tillid,jdbcType=VARCHAR}, #{xfStorecode,jdbcType=VARCHAR}, #{deviceInfo,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{visitTime,jdbcType=TIMESTAMP}, #{xfUpdate,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="smw.xfTillidState.insertSelective" parameterType="com.smw.pojo.XfTillidState" >
+    insert into xf_tillid_state
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tillid != null" >
+        tillid,
+      </if>
+      <if test="xfStorecode != null" >
+        xf_storecode,
+      </if>
+      <if test="deviceInfo != null" >
+        device_info,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="visitTime != null" >
+        visit_time,
+      </if>
+      <if test="xfUpdate != null" >
+        xf_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tillid != null" >
+        #{tillid,jdbcType=VARCHAR},
+      </if>
+      <if test="xfStorecode != null" >
+        #{xfStorecode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceInfo != null" >
+        #{deviceInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="visitTime != null" >
+        #{visitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xfUpdate != null" >
+        #{xfUpdate,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="smw.xfTillidState.updateByIdSelective" parameterType="com.smw.pojo.XfTillidState" >
+    update xf_tillid_state
+    <set >
+      <if test="deviceInfo != null" >
+        device_info = #{deviceInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="visitTime != null" >
+        visit_time = #{visitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xfUpdate != null" >
+        xf_update = #{xfUpdate,jdbcType=BIT},
+      </if>
+    </set>
+    where tillid = #{tillid,jdbcType=VARCHAR}
+      and xf_storecode = #{xfStorecode,jdbcType=VARCHAR}
+  </update>
+  <update id="smw.xfTillidState.updateById" parameterType="com.smw.pojo.XfTillidState" >
+    update xf_tillid_state
+    set device_info = #{deviceInfo,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      visit_time = #{visitTime,jdbcType=TIMESTAMP},
+      xf_update = #{xfUpdate,jdbcType=BIT}
+    where tillid = #{tillid,jdbcType=VARCHAR}
+      and xf_storecode = #{xfStorecode,jdbcType=VARCHAR}
+  </update>
+</mapper>

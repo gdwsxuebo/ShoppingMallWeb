@@ -1,0 +1,110 @@
+.content .formList{
+    width: 550px;
+}
+.content .formList .select_container{
+    position: relative;
+    float: left;
+}
+.select{
+    width: 238px;
+}
+.selectContainer{
+    line-height: 40px;
+}
+.select_ul{
+/*     height: 90px; */
+    width: 238px;
+}
+.content .formList input{
+	padding-left:3px;
+    width: 236px;
+    height: 36px;
+}
+.content .formList div>span{
+    display: inline-block;
+    width: 240px;
+    margin-bottom: 6px;
+}
+.content .formList div>span:last-of-type{
+    margin-left: 60px;
+}
+.content .formList div>input:last-of-type{
+    margin-left: 60px;
+    margin-bottom: 15px;
+}
+.content .handle .btn{
+    width: 72px;
+    display: inline-block;
+    border-radius: 5px;
+    line-height: 40px;
+    text-align: center;
+}
+.content .handle .btn.confirm{
+    color: #ffffff;
+    margin-right:20px;
+    background-color: rgb(101,206,167);
+}
+.content .handle .btn.cancel{
+    color: rgb(128,128,128);
+    background-color: rgb(227,228,232);
+}
+.select{
+    display: inline-block;
+    width: 242px;
+    height: 38px;
+    float: right;
+    text-align: left;
+    border: 1px solid #999;
+}
+.select>.selectContainer{
+    padding-left: 10px;
+}
+.select:after{
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 15px;
+    background: url(../image/icon_main.png) -170px -60px no-repeat;
+}
+.select_ul{
+    width: 242px;
+    position: absolute;
+    overflow: auto;
+    top: 38px;
+    right: 0;
+    z-index: 2;
+    text-align: left;
+    display: none;
+    border: 1px solid #999;
+}
+.select_ul>li{
+    line-height: 30px;
+    background: #ffffff;
+    padding-left: 6px;
+    color: rgb(153, 153, 153);
+}
+.select_ul>li:hover{
+    background-color: rgb(238,238,238);
+}
+.select_ul .first{
+    height: 42px;
+    padding-top: 6px;
+}
+.select_ul .first>input{
+    width: 182px;
+    height: 30px;
+    border: 1px solid #999;
+    border-radius: 3px 0 0 3px;
+}
+.select_ul .first>span{
+    border: 1px solid #999;
+    border-left: none;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 2px;
+    color: rgb(66, 79, 99);
+    border-radius: 0 3px 3px 0;
+}

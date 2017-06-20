@@ -1,0 +1,36 @@
+.pop{
+    height: 630px;
+    margin-top: -315px;
+}
+.right .middle .content .tableContainer td span.btn.update{
+    border: 1px solid rgb(240,173,78);
+    color: rgb(240,173,78);
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 20px;
+}
+.shadow .pop .formList>div{
+    line-height: 40px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+.shadow .pop .formList>div>input{
+    height: 36px;
+    width: 240px;
+    text-indent: 10px;
+}
+.shadow .pop .formList>div>select{
+    width: 244px;
+    height: 36px;
+}
+.shadow .pop .formList>div.small>input{
+    width: 60px;
+}
+.shadow .pop .formList>div.small>input:first-of-type{
+    margin-right: 52px;
+}
+
+
+

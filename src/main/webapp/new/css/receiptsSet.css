@@ -1,0 +1,111 @@
+.content .formList,
+.content .check{
+    float: left;
+}
+
+/*formList*/
+.content .formList input{
+    height: 36px;
+    width: 236px;
+    margin: 10px 0 20px;
+    text-indent: 10px;
+}
+.content .formList p{
+    color: rgb(102, 102, 102);
+}
+.content .formList p>small{
+    font-size: 0.86em;
+    margin-left: 10px;
+    color: rgb(153, 153, 153);
+}
+
+
+
+/* 打印小票结尾设置*/
+textarea {
+   width:217px;
+   height:90px;
+   margin: 10px 0 20px;
+  
+}
+.content .formList p>span.btn{
+    line-height: 40px;
+    display: inline-block;
+    color: #ffffff;
+    width: 120px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgb(66,79,99);
+}
+.content .formList p>span.btn:hover{
+    background-color: rgb(59,71,89);
+}
+#erweima,
+#yulan{
+    margin: 10px 0;
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+#erweima:hover .close,
+#yulan:hover .close{
+    display: block;
+}
+.close{
+    position: absolute;
+    top:0;
+    right:0;
+    display: none;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+    cursor: pointer;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/*check*/
+.content .check{
+    width: 320px;
+    height: 580px;
+    border-radius: 5px;
+    padding: 40px 60px 20px;
+    margin-left: 80px;
+    background-color: rgb(239,240,244);
+}
+.content .check>h3{
+    font-size: 1.14em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.content .check .receipts{
+    width: 300px;
+    height: 500px;
+    padding: 20px 10px;
+    background-color: #ffffff;
+}
+.content .check .receipts h6{
+    font-size: 1em;
+    font-weight: normal;
+    text-align: right;
+}
+.content .check .receipts h5{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.content .check .receipts .receiptsLogo{
+    text-align: center;
+    margin-top: 20px;
+}
+.content .check .receipts table th{
+    text-align: left;
+}
+.content .check .receipts table th:nth-of-type(n+3),
+.content .check .receipts table td:nth-of-type(n+3){
+    text-align: right;
+}
+.content .check .receipts table tfoot tr:first-of-type td,
+.content .check .receipts table tfoot tr:nth-last-of-type(2) td{
+    padding-top: 10px;
+}

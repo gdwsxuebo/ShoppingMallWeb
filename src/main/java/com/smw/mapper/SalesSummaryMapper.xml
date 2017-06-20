@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="smw.salesSummary" >
+  <resultMap id="BaseResultMap" type="com.smw.pojo.SalesSummary" >
+    <id column="txdocno" property="txdocno" jdbcType="VARCHAR" />
+    <result column="txdate" property="txdate" jdbcType="DATE" />
+    <result column="txtime" property="txtime" jdbcType="TIME" />
+    <result column="mallid" property="mallid" jdbcType="VARCHAR" />
+    <result column="storecode" property="storecode" jdbcType="VARCHAR" />
+    <result column="tillid" property="tillid" jdbcType="VARCHAR" />
+    <result column="staffcode" property="staffcode" jdbcType="VARCHAR" />
+    <result column="vipcode" property="vipcode" jdbcType="VARCHAR" />
+    <result column="salesman" property="salesman" jdbcType="VARCHAR" />
+    <result column="netqty" property="netqty" jdbcType="DECIMAL" />
+    <result column="netamount" property="netamount" jdbcType="DECIMAL" />
+    <result column="original_txdocno" property="originalTxdocno" jdbcType="VARCHAR" />
+    <result column="transfer_espos" property="transferEspos" jdbcType="BIT" />
+    <result column="cash_storecode" property="cashStorecode" jdbcType="VARCHAR" />
+    <result column="payamount" property="payamount" jdbcType="DECIMAL" />
+    <result column="tendercode" property="tendercode" jdbcType="VARCHAR" />
+    <result column="xfTenderdesc" property="xfTenderdesc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    txdocno, txdate, txtime, mallid, storecode, tillid, staffcode, vipcode, salesman, 
+    netqty, netamount, original_txdocno, transfer_espos, cash_storecode
+  </sql>
+  <select id="smw.salesSummary.selectById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sales_summary
+    where txdocno = #{txdocno,jdbcType=VARCHAR}
+  </select>
+   <select id="smw.salesSummary.selectSalesSummaryByXfStorecodeAndDate" resultMap="BaseResultMap">
+    SELECT
+	sales_summary.txdate as txdate,
+	Sum(sales_tender.payamount) as payamount, 
+	sales_tender.tendercode as tendercode,
+	xf_tender.xf_tenderdesc as xfTenderdesc
+	FROM
+	sales_summary
+	INNER JOIN sales_tender ON sales_tender.txdocno = sales_summary.txdocno
+	INNER JOIN xf_tender ON sales_tender.tendercode = xf_tender.xf_tendercode
+	WHERE sales_summary.cash_storecode = #{storecode,jdbcType=VARCHAR} AND (sales_summary.txdate &gt;= #{ed,jdbcType=VARCHAR} AND sales_summary.txdate &lt;= #{ed,jdbcType=VARCHAR})
+	GROUP BY sales_summary.txdate , sales_tender.tendercode
+	ORDER BY sales_summary.txdate, sales_tender.tendercode
+  </select>
+  <delete id="smw.salesSummary.deleteById" parameterType="java.lang.String" >
+    delete from sales_summary
+    where txdocno = #{txdocno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="smw.salesSummary.insert" parameterType="com.smw.pojo.SalesSummary" >
+    insert into sales_summary (txdocno, txdate, txtime, 
+      mallid, storecode, tillid, 
+      staffcode, vipcode, salesman, 
+      netqty, netamount, original_txdocno, 
+      transfer_espos, cash_storecode)
+    values (#{txdocno,jdbcType=VARCHAR}, #{txdate,jdbcType=DATE}, #{txtime,jdbcType=TIME}, 
+      #{mallid,jdbcType=VARCHAR}, #{storecode,jdbcType=VARCHAR}, #{tillid,jdbcType=VARCHAR}, 
+      #{staffcode,jdbcType=VARCHAR}, #{vipcode,jdbcType=VARCHAR}, #{salesman,jdbcType=VARCHAR}, 
+      #{netqty,jdbcType=DECIMAL}, #{netamount,jdbcType=DECIMAL}, #{originalTxdocno,jdbcType=VARCHAR}, 
+      #{transferEspos,jdbcType=BIT}, #{cashStorecode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="smw.salesSummary.insertSelective" parameterType="com.smw.pojo.SalesSummary" >
+    insert into sales_summary
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="txdocno != null" >
+        txdocno,
+      </if>
+      <if test="txdate != null" >
+        txdate,
+      </if>
+      <if test="txtime != null" >
+        txtime,
+      </if>
+      <if test="mallid != null" >
+        mallid,
+      </if>
+      <if test="storecode != null" >
+        storecode,
+      </if>
+      <if test="tillid != null" >
+        tillid,
+      </if>
+      <if test="staffcode != null" >
+        staffcode,
+      </if>
+      <if test="vipcode != null" >
+        vipcode,
+      </if>
+      <if test="salesman != null" >
+        salesman,
+      </if>
+      <if test="netqty != null" >
+        netqty,
+      </if>
+      <if test="netamount != null" >
+        netamount,
+      </if>
+      <if test="originalTxdocno != null" >
+        original_txdocno,
+      </if>
+      <if test="transferEspos != null" >
+        transfer_espos,
+      </if>
+      <if test="cashStorecode != null" >
+        cash_storecode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="txdocno != null" >
+        #{txdocno,jdbcType=VARCHAR},
+      </if>
+      <if test="txdate != null" >
+        #{txdate,jdbcType=DATE},
+      </if>
+      <if test="txtime != null" >
+        #{txtime,jdbcType=TIME},
+      </if>
+      <if test="mallid != null" >
+        #{mallid,jdbcType=VARCHAR},
+      </if>
+      <if test="storecode != null" >
+        #{storecode,jdbcType=VARCHAR},
+      </if>
+      <if test="tillid != null" >
+        #{tillid,jdbcType=VARCHAR},
+      </if>
+      <if test="staffcode != null" >
+        #{staffcode,jdbcType=VARCHAR},
+      </if>
+      <if test="vipcode != null" >
+        #{vipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="salesman != null" >
+        #{salesman,jdbcType=VARCHAR},
+      </if>
+      <if test="netqty != null" >
+        #{netqty,jdbcType=DECIMAL},
+      </if>
+      <if test="netamount != null" >
+        #{netamount,jdbcType=DECIMAL},
+      </if>
+      <if test="originalTxdocno != null" >
+        #{originalTxdocno,jdbcType=VARCHAR},
+      </if>
+      <if test="transferEspos != null" >
+        #{transferEspos,jdbcType=BIT},
+      </if>
+      <if test="cashStorecode != null" >
+        #{cashStorecode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="smw.salesSummary.updateByIdSelective" parameterType="com.smw.pojo.SalesSummary" >
+    update sales_summary
+    <set >
+      <if test="txdate != null" >
+        txdate = #{txdate,jdbcType=DATE},
+      </if>
+      <if test="txtime != null" >
+        txtime = #{txtime,jdbcType=TIME},
+      </if>
+      <if test="mallid != null" >
+        mallid = #{mallid,jdbcType=VARCHAR},
+      </if>
+      <if test="storecode != null" >
+        storecode = #{storecode,jdbcType=VARCHAR},
+      </if>
+      <if test="tillid != null" >
+        tillid = #{tillid,jdbcType=VARCHAR},
+      </if>
+      <if test="staffcode != null" >
+        staffcode = #{staffcode,jdbcType=VARCHAR},
+      </if>
+      <if test="vipcode != null" >
+        vipcode = #{vipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="salesman != null" >
+        salesman = #{salesman,jdbcType=VARCHAR},
+      </if>
+      <if test="netqty != null" >
+        netqty = #{netqty,jdbcType=DECIMAL},
+      </if>
+      <if test="netamount != null" >
+        netamount = #{netamount,jdbcType=DECIMAL},
+      </if>
+      <if test="originalTxdocno != null" >
+        original_txdocno = #{originalTxdocno,jdbcType=VARCHAR},
+      </if>
+      <if test="transferEspos != null" >
+        transfer_espos = #{transferEspos,jdbcType=BIT},
+      </if>
+      <if test="cashStorecode != null" >
+        cash_storecode = #{cashStorecode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where txdocno = #{txdocno,jdbcType=VARCHAR}
+  </update>
+  <update id="smw.salesSummary.updateById" parameterType="com.smw.pojo.SalesSummary" >
+    update sales_summary
+    set txdate = #{txdate,jdbcType=DATE},
+      txtime = #{txtime,jdbcType=TIME},
+      mallid = #{mallid,jdbcType=VARCHAR},
+      storecode = #{storecode,jdbcType=VARCHAR},
+      tillid = #{tillid,jdbcType=VARCHAR},
+      staffcode = #{staffcode,jdbcType=VARCHAR},
+      vipcode = #{vipcode,jdbcType=VARCHAR},
+      salesman = #{salesman,jdbcType=VARCHAR},
+      netqty = #{netqty,jdbcType=DECIMAL},
+      netamount = #{netamount,jdbcType=DECIMAL},
+      original_txdocno = #{originalTxdocno,jdbcType=VARCHAR},
+      transfer_espos = #{transferEspos,jdbcType=BIT},
+      cash_storecode = #{cashStorecode,jdbcType=VARCHAR}
+    where txdocno = #{txdocno,jdbcType=VARCHAR}
+  </update>
+</mapper>

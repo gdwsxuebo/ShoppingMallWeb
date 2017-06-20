@@ -1,0 +1,24 @@
+1    ERROR [2016-12-06 16:46:38]  {dataSource-1} init error | 
+java.sql.SQLException: oracle.jdbc.driver.OracleDriver
+	at com.alibaba.druid.util.JdbcUtils.createDriver(JdbcUtils.java:570)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:642)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:988)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:984)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:103)
+	at com.gws.dao.impl.DataSouceUtil.openConnection(DataSouceUtil.java:44)
+	at com.gws.dao.impl.DataSouceUtil.main(DataSouceUtil.java:51)
+Caused by: java.lang.ClassNotFoundException: oracle.jdbc.driver.OracleDriver
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:372)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:361)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:360)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:260)
+	at com.alibaba.druid.util.JdbcUtils.createDriver(JdbcUtils.java:568)
+	... 6 more
+0    ERROR [2016-12-06 16:47:12]  testWhileIdle is true, validationQuery not set | 
+0    ERROR [2016-12-06 16:49:09]  testWhileIdle is true, validationQuery not set | 
+0    ERROR [2016-12-06 16:55:28]  testWhileIdle is true, validationQuery not set | 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<V61>
+<XF_STORE>
+select XF_STORECODE,XF_NAME from XF_STORE WHERE XF_ACTIVE=1 
+</XF_STORE>
+<XF_STAFF>
+select xf_staffcode,xf_name,xf_password,xf_issuestore,xf_issuperuser from XF_staff where xf_issuestore is not null and exists (select * from xf_store where xf_staff.xf_issuestore=xf_store.XF_STORECODE and xf_store.XF_ACTIVE=1  ) 
+</XF_STAFF>
+<XF_TENDER>
+select xf_tendercode,xf_tenderdesc from XF_TENDER
+</XF_TENDER>
+<XF_ITEMMAS>
+ select xf_style,xf_desci,xf_group29,XF_ITEMORGID from xf_itemmas  where  
+ exists (select * from xf_store where xf_itemmas.xf_group29=xf_store.XF_STORECODE and xf_store.XF_ACTIVE=1  )
+</XF_ITEMMAS>
+<FILTER_STAFF>
+
+</FILTER_STAFF>
+</V61>

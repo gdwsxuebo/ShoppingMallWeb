@@ -1,0 +1,93 @@
+/*隐藏日期输入框上下三角*/
+input[type=date]::-webkit-inner-spin-button { visibility: hidden; }
+
+.right .middle .content .tableContainer td span.btn{
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 20px;
+}
+.right .middle .content .tableContainer td span.btn.lookSend,
+.right .middle .content .tableContainer td span.btn.lookUse{
+    border: 1px solid rgb(66,79,99);
+    color: rgb(66,79,99);
+}
+.right .middle .content .tableContainer td span.btn.update{
+    border: 1px solid rgb(240,173,78);
+    color: rgb(240,173,78);
+}
+.right .middle .content .tableContainer td span.btn.update.unable{
+    background-color: #e5e5e5;
+    border: 1px solid #e5e5e5;
+    color: rgb(204,204,204);
+    cursor: no-drop;
+}
+
+/*look*/
+.shadow .pop{
+    display: none;
+}
+.pop.look .container .search{
+    line-height: 40px;
+    border-radius:5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid rgb(204,204,204);
+}
+.pop.look .container .search>input{
+    width: 297px;
+    height: 40px;
+    border: none;
+    border-right: 1px solid rgb(204,204,204);
+}
+.pop.look .container .search .searchBtn{
+    width: 40px;
+    height: 40px;
+    float: right;
+    display: inline-block;
+}
+.pop.look .container .storeList{
+    float: left;
+    height: 188px;
+    width:100%;
+    text-align: left;
+    overflow: auto;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(204,204,204);
+}
+.pop.look .container .storeList li{
+    line-height: 30px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+.pop.look .container .storeList li:hover{
+    background-color: rgba(204,204,204,.6);
+}
+
+/*addSale*/
+.pop.addSale{
+    height: 740px;
+    width: 450px;
+    margin-top: -370px;
+}
+.pop.addSale p{
+    margin-bottom: 10px;
+    width:100%;
+    text-align: right;
+}
+.pop.addSale p>span:first-of-type{
+    margin-right: 5px;
+}
+.pop.addSale p>input{
+    width: 270px;
+    height: 36px;
+}
+.pop.addSale p.small>input{
+    width: 116px;
+}
+.pop.addSale p.small>select{
+    width: 119px;
+    height: 40px;
+}

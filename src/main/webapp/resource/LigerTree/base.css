@@ -1,0 +1,147 @@
+.new_add_jiedua{ margin: 0 auto;padding: 0px;display: block;background: none;outline:none;border:0px;color:#FFFFFF;
+font-size:14px; width:160px;height: 34px;background: url("../images/new_add_jieduan.png");
+margin-left: 20px;margin-right: 20px;
+}
+.new_add_jiedua:hover{ margin: 0 auto;padding: 0px;width:160px;height: 34px;
+background: url("../images/new_add_jieduan_hover.png");cursor: pointer;margin-left: 20px;margin-right: 20px;
+}
+<!--娴呴粍-->
+.yellow_one{background-color: #F0E68C;}
+<!--娴呴粍-->
+.columncolor_1{color:#ff0000;}
+.columncolor_2{color:#000000;}
+.columncolor_3{color:#646464;}
+.columncolor_4{color:#f9bf23;}
+.columncolor_5{color:green;}
+.columncolor_7{color:#ff4c4c;}
+.yellow_02{background: #F5DEB3;}
+.base_btn{margin: 0px;padding: 0px;text-align: center;width:980px;}
+.base_btn .btn,.base_btn input{display: block;background: none;border:none;cursor: pointer; font-family: '寰蒋闆呴粦';font-size: 14px;outline: none;padding: 8px 20px 8px 20px;margin: 10px;display: inline;}
+
+.base_btn .btn.yellow{background-color: #FFD700;color: #FFFFFF;}
+.base_btn .btn.yellow_one{background-color: #F5DEB3;color: #FFFFFF;}
+.base_btn .btn.red{background-color: #FF6347;color: #FFFFFF;}
+.base_btn .btn.blue{background-color: #00FFFF;color: #FFFFFF;}
+.base_btn .btn.gray{background-color: #D9D9D9;color: #FFFFFF;}
+label{display: block;outline: none;background: none;}
+
+.tiaokuan_base{margin: 0px;padding: 0px;border: 1px solid #D9D9D9;margin-top: 20px;width:100%;}
+.tiaokuan-title{margin:0px;padding:0px;width:100%; height: 55px;}
+.tiaokuan_name{font-size: 18px;border-bottom: 2px solid #00F5FF;width:80px;float: left; height: 45px;line-height: 45px;margin-left: 12px;}
+.tiaokuan-title .base_btn input{float: right;margin-right: 40px;}
+
+.jieduan_title_info{margin: 0 auto;padding: 0px;width:100%;height: 28px;margin-bottom: 12px;margin-top: 12px;}
+.jieduan_title_info .title{margin: 0 auto;padding: 0px;width:80px;height: 25px;color: #646464;font-size: 14px;font-weight: bold;float: left;border-bottom: 2px solid #FFEC8B;}
+.jieduan_title_info .line{margin: 0 auto;padding: 0px; height: 25px;border-bottom: 2px solid #EAEAEA;width:650px;float: left;}
+.delete-icon{margin: 0 auto;display:block;background:none;border:none; height: 27px;padding-left: 8px;padding-right: 8px;background-color: #CFCFCF;float: right;margin-right: 0px;outline: none;}
+.delete-icon:hover{cursor: pointer;}
+
+ul{margin: 0px;padding: 0px;list-style: none;outline: none;display: block;}
+ul li{margin: 0px;padding: 0px;list-style: none;outline: none;display: block;}
+ul li a,.btn a{text-decoration:none;display: block;outline: none;cursor: pointer;}
+label{display: block;outline: none;border: none;background: none;margin: 0px;padding: 0px;}
+i{display: block;outline: none;border: none;background: none;margin: 0px;padding: 0px;}
+/*鍩烘湰鎸夐挳寮�濮�*/
+.btn{
+	margin:0px;
+	padding: 0px;
+	clear: both;
+	text-align: center;
+}
+
+.btn a{
+	padding:0px;
+	width:88px;
+	height: 38px;
+	font-family:'寰蒋闆呴粦';
+	font-size: 14px;
+	color: #ffffff;
+	border-radius: 15px;
+	text-align:center;
+	line-height:38px;
+	margin: 8px 4px 8px 4px;
+
+}
+.opr_btn{float: left;padding-right:15px;width: 97%;}
+.opr_btn ul li{float: left;margin-left: 20px;}
+.opr_btn ul li a{
+	padding:0px;
+	width:88px;
+	height: 38px;
+	font-family:'寰蒋闆呴粦';
+	font-size: 14px;
+	color: #ffffff;
+	display: block;
+	text-align:center;
+	line-height:38px;
+	margin: 8px 4px 8px 4px;
+
+}
+
+.search{
+	background: url("../images/btn/search.png");
+}
+.search:hover{
+	background: url("../images/btn/search_hover.png");
+}
+.add,.save{
+	background: url("../images/btn/add.png");
+}
+.wh{
+	background: url("../images/btn/add.png");
+}
+.add:hover,.save:hover{
+	background: url("../images/btn/add_hover.png");
+}
+.look{
+	background: url("../images/btn/look.png");
+}
+.look:hover{
+	background: url("../images/btn/look_hover.png");
+}
+.update,.edit{
+	background: url("../images/btn/update.png");
+}
+.update:hover,edit:hover{
+	background: url("../images/btn/update_hover.png");
+}
+.delete{
+	background: url("../images/btn/delete.png");
+}
+.delete:hover{
+	background: url("../images/btn/delete_hover.png");
+}
+.print{
+	background: url("../images/btn/print.png");
+}
+.print:hover{
+	background: url("../images/btn/print_hover.png");
+}
+.export{
+	background: url("../images/btn/export.png");
+}
+.export:hover{
+	background: url("../images/btn/export_hover.png");
+}
+.setup{
+	background: url("../images/btn/setUp.png");
+}
+.setup:hover{
+	background: url("../images/btn/setUp_hover.png");
+}
+.confirm{
+	background: url("../images/btn/search.png");
+}
+.confirm:hover{
+	background: url("../images/btn/search_hover.png");
+}
+.longbtn{
+	background: url("../images/btn/longbtn.png");
+}
+.longbtn:hover{
+	background: url("../images/btn/longbtn_hover.png");
+}
+/*鍩烘湰鎸夐挳缁撴潫*/
+
+ .l-form ul{ clear:both; margin-top:2px; margin-bottom:2px;padding-top:3px}
+
